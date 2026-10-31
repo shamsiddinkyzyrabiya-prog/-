@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Kyrgyzstan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>🇰🇬 Travel Kyrgyzstan</h1>
+    <nav>
+        <a href="#home" data-i18n="home">Башкы бет</a>
+        <a href="#places" data-i18n="places">Жерлер</a>
+        <a href="#hotels" data-i18n="hotels">Мейманканалар</a>
+        <a href="#about" data-i18n="about">Биз жөнүндө</a>
+        <select id="language" aria-label="Тил тандоо">
+            <option value="ky">Кыргызча</option>
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+        </select>
+    </nav>
+</header>
+<!-- БАШКЫ БЕТ -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2 data-i18n="heroTitle">
+            Кыргызстанды биз менен кыдыр!
+        </h2>
+        <p data-i18n="heroText">
+            Тоолордун кооздугун, көлдөрдү жана тарыхый жерлерди ач.
+        </p>
+        <a href="#places" class="btn" data-i18n="explore">
+            Саякатты баштоо
+        </a>
+    </div>
+</section>
+<!-- КООЗ ЖЕРЛЕР -->
+<section id="places" class="section">
+    <h2 data-i18n="placesTitle">
+        🏔️ Кыргызстандагы кооз жерлер
+    </h2>
+    <input
+        type="search"
+        id="search"
+        placeholder="Жердин атын издөө..."
+        data-i18n-placeholder="searchPlaceholder"
+        aria-label="Жерлерди издөө"
+    >
+    <div class="cards" id="placesList">
+        <!-- ЫСЫК-КӨЛ -->
+        <article class="card"
+            data-search="ысык-көл issyk-kul иссык-куль көл lake">
+            <img
+                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80"
+                alt="Көл жана тоолор"
+                loading="lazy"
+            >
+            <div class="card-body">
+                <h3 data-i18n="lakeTitle">Ысык-Көл</h3>
+                <p data-i18n="lakeShort">
+                    Кыргызстандын бермети.
+                </p>
+                <button onclick="showDetails('lake')"
+                    data-i18n="details">
+                    Кененирээк
+                </button>
+            </div>
+        </article>
+        <!-- АЛА-АРЧА -->
+        <article class="card"
+            data-search="ала-арча ala-archa ала арча парк park">
+            <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+                alt="Бийик тоолор"
+                loading="lazy"
+            >
+            <div class="card-body">
+                <h3 data-i18n="parkTitle">Ала-Арча</h3>
+                <p data-i18n="parkShort">
+                    Бишкекке жакын улуттук парк.
+                </p>
+                <button onclick="showDetails('park')"
+                    data-i18n="details">
+                    Кененирээк
+                </button>
+            </div>
+        </article>
+        <!-- СОҢ-КӨЛ -->
+        <article class="card"
+            data-search="соң-көл son-kul сон-куль көл">
+            <img
+                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80"
+                alt="Көл жана жаратылыш"
+                loading="lazy"
+            >
+            <div class="card-body">
+                <h3 data-i18n="sonTitle">Соң-Көл</h3>
+                <p data-i18n="sonShort">
+                    Бийик тоолордогу кооз көл.
+                </p>
+                <button onclick="showDetails('son')"
+                    data-i18n="details">
+                    Кененирээк
+                </button>
+            </div>
+        </article>
+        <!-- БУРАНА МУНАРАСЫ -->
+        <article class="card"
+            data-search="бурана burana мунара tower">
+            <img
+                src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=crop&w=900&q=80"
+                alt="Тарыхый архитектура"
+                loading="lazy"
+            >
+            <div class="card-body">
+                <h3 data-i18n="buranaTitle">Бурана мунарасы</h3>
+                <p data-i18n="buranaShort">
+                    Кыргызстандагы тарыхый эстелик.
+                </p>
+                <button onclick="showDetails('burana')"
+                    data-i18n="details">
+                    Кененирээк
+                </button>
+            </div>
+        </article>
+        <!-- ЖЕТИ-ӨГҮЗ -->
+        <article class="card"
+            data-search="жети-өгүз jeti-oguz жети өгүз кызыл аска">
+            <img
+                src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=900&q=80"
+                alt="Тоолуу жаратылыш"
+                loading="lazy"
+            >
+            <div class="card-body">
+                <h3 data-i18n="jetiTitle">Жети-Өгүз</h3>
+                <p data-i18n="jetiShort">
+                    Кызыл аскалары менен белгилүү аймак.
+                </p>
+                <button onclick="showDetails('jeti')"
+                    data-i18n="details">
+                    Кененирээк
+                </button>
+            </div>
+        </article>
+        <!-- СУЛАЙМАН-ТОО -->
+        <article class="card"
+            data-search="сулайман-тоо suleiman-too ош osh">
+            <img
+                src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+                alt="Тоолуу пейзаж"
+                loading="lazy"
+            >
+            <div class="card-body">
+                <h3 data-i18n="suleimanTitle">Сулайман-Тоо</h3>
+                <p data-i18n="suleimanShort">
+                    Ош шаарындагы белгилүү ыйык тоо.
+                </p>
+                <button onclick="showDetails('suleiman')"
+                    data-i18n="details">
+                    Кененирээк
+                </button>
+            </div>
+        </article>
+    </div>
+    <p id="noResults" hidden data-i18n="noResults">
+        Эч нерсе табылган жок.
+    </p>
+</section>
+<!-- МЕЙМАНКАНА БРОНДОО -->
+<section id="hotels" class="section hotel-section">
+    <h2 data-i18n="hotelTitle">
+        🏨 Мейманкана брондоо
+    </h2>
+    <p class="section-intro" data-i18n="hotelIntro">
+        Саякатыңа ылайыктуу мейманкананы танда.
+    </p>
+    <form id="bookingForm" class="booking">
+        <label for="hotel" data-i18n="chooseHotel">
+            Мейманкананы танда:
+        </label>
+        <select id="hotel" required>
+            <option value="Bishkek Hotel">Bishkek Hotel</option>
+            <option value="Issyk-Kul Resort">Issyk-Kul Resort</option>
+            <option value="Mountain Guest House">Mountain Guest House</option>
+        </select>
+        <label for="date" data-i18n="arrivalDate">
+            Келүү күнү:
+        </label>
+        <input type="date" id="date" required>
+        <label for="guests" data-i18n="guestCount">
+            Коноктордун саны:
+        </label>
+        <input
+            type="number"
+            id="guests"
+            min="1"
+            max="20"
+            value="2"
+            required
+        >
+        <label for="email">Email:</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="example@email.com"
+            required
+        >
+        <button type="submit" data-i18n="book">
+            Брондоо
+        </button>
+    </form>
+    <div id="bookingResult" aria-live="polite"></div>
+</section>
+<!-- БИЗ ЖӨНҮНДӨ -->
+<section id="about" class="section about">
+    <h2 data-i18n="aboutTitle">
+        Биз жөнүндө
+    </h2>
+    <p data-i18n="aboutText">
+        Travel Kyrgyzstan — Кыргызстандагы кооз жерлерди
+        таанытууга арналган туристтик сайт.
+    </p>
+</section>
+<!-- КЕНЕНИРЭЭК МААЛЫМАТ ТЕРЕЗЕСИ -->
+<div id="detailsModal" class="modal" aria-hidden="true">
+    <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+        <button
+            class="close-btn"
+            id="closeModal"
+            aria-label="Терезени жабуу"
+        >
+            ✕
+        </button>
+        <div id="detailsContent"></div>
+    </div>
+</div>
+<footer>
+    <p>
+        © 2026 Travel Kyrgyzstan 🇰🇬
+    </p>
+    <p data-i18n="footerText">
+        Кыргызстанды бирге тааныйлы!
+    </p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

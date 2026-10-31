@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f6;
+    color: #24332f;
+    line-height: 1.7;
+}
+body.modal-open {
+    overflow: hidden;
+}
+/* HEADER */
+header {
+    background: #087f5b;
+    color: white;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header h1 {
+    font-size: 25px;
+}
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    color: #ffe082;
+}
+nav select {
+    padding: 9px;
+    border: none;
+    border-radius: 7px;
+    background: white;
+    color: #24332f;
+}
+/* БАШКЫ БЕТ */
+.hero {
+    min-height: 470px;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+}
+.hero-content {
+    max-width: 850px;
+}
+.hero h2 {
+    font-size: clamp(30px, 5vw, 50px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.btn {
+    display: inline-block;
+    background: #087f5b;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn:hover {
+    background: #056344;
+}
+/* ЖАЛПЫЙ SECTION */
+.section {
+    padding: 60px 6%;
+}
+.section h2 {
+    color: #087f5b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+.section-intro {
+    text-align: center;
+    margin-bottom: 25px;
+}
+/* ИЗДӨӨ */
+#search {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto 35px;
+    padding: 14px;
+    border: 1px solid #cbd5d1;
+    border-radius: 9px;
+    font-size: 16px;
+    outline-color: #087f5b;
+}
+/* КАРТОЧКАЛАР */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+    gap: 25px;
+}
+.card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card[hidden] {
+    display: none;
+}
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.card-body {
+    padding: 20px;
+}
+.card h3 {
+    color: #087f5b;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.card p {
+    margin-bottom: 18px;
+}
+button {
+    background: #087f5b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #056344;
+}
+#noResults {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+/* МЕЙМАНКАНА */
+.hotel-section {
+    background: #eaf4ef;
+}
+.booking {
+    background: white;
+    max-width: 560px;
+    margin: auto;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.booking label {
+    font-weight: bold;
+}
+.booking input,
+.booking select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccd6d1;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+}
+.booking button {
+    margin-top: 10px;
+}
+#bookingResult {
+    max-width: 560px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+#bookingResult:empty {
+    display: none;
+}
+#bookingResult:not(:empty) {
+    background: white;
+    border: 1px solid #d7e6de;
+}
+/* БИЗ ЖӨНҮНДӨ */
+.about {
+    text-align: center;
+}
+.about p {
+    max-width: 800px;
+    margin: auto;
+}
+/* КЕНЕНИРЭЭК ТЕРЕЗЕ */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+    padding: 25px 15px;
+}
+.modal.show {
+    display: block;
+}
+.modal-content {
+    background: white;
+    max-width: 850px;
+    min-height: 200px;
+    margin: 15px auto;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    animation: modalAppear 0.25s ease;
+}
+.close-btn {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 20px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+#detailsContent h2 {
+    color: #087f5b;
+    font-size: 30px;
+    margin: 15px 0 20px;
+    padding-right: 45px;
+}
+#detailsContent h3 {
+    color: #087f5b;
+    margin: 25px 0 10px;
+    font-size: 21px;
+}
+#detailsContent p {
+    margin-bottom: 15px;
+}
+#detailsContent ul {
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+#detailsContent li {
+    margin-bottom: 8px;
+}
+#detailsContent img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 10px 0 20px;
+    display: block;
+}
+#detailsContent .extra-photo {
+    height: 230px;
+    margin-top: 15px;
+}
+/* АНИМАЦИЯ */
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* FOOTER */
+footer {
+    background: #075c44;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+/* ТЕЛЕФОНГО ЫЛАЙЫКТАШТЫРУУ */
+@media (max-width: 750px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+    header h1 {
+        font-size: 22px;
+    }
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+    .hero {
+        min-height: 400px;
+    }
+    .section {
+        padding: 40px 5%;
+    }
+    .section h2 {
+        font-size: 25px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .card img {
+        height: 240px;
+    }
+    .modal {
+        padding: 10px;
+    }
+    .modal-content {
+        margin: 5px auto;
+        padding: 20px;
+    }
+    #detailsContent h2 {
+        font-size: 25px;
+    }
+    #detailsContent img {
+        height: 230px;
+    }
+    .booking {
+        padding: 20px;
+    }
+}
